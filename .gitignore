@@ -1,0 +1,36 @@
+# Maven specific
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+.mvn/wrapper/maven-wrapper.properties
+
+# Eclipse specific
+.classpath
+.project
+.settings/
+
+# IntelliJ IDEA specific
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# NetBeans specific
+nbproject/
+
+# Gradle specific
+build/
+.gradle/
+
+# macOS specific
+.DS_Store
+
+# Windows specific
+Thumbs.db

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.tenmo</groupId>
+  <artifactId>java-custom-rules-example</artifactId>
+  <packaging>sonar-plugin</packaging>
+  <version>1.0</version>
+
+  <name>SonarQube Java :: Documentation :: Custom Rules Example</name>
+  <description>Java Custom Rules Example for SonarQube</description>
+
+  <properties>
+    <jacoco.version>0.8.10</jacoco.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!-- MAIN sources dependencies -->
+    <dependency>
+      <groupId>org.sonarsource.api.plugin</groupId>
+      <artifactId>sonar-plugin-api</artifactId>
+      <version>9.9.0.229</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.12</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.sonarsource.java</groupId>
+      <artifactId>sonar-java-plugin</artifactId>
+      <type>sonar-plugin</type>
+      <version>7.34.0.35958</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.sonarsource.analyzer-commons</groupId>
+      <artifactId>sonar-analyzer-commons</artifactId>
+      <version>2.9.0.2753</version>
+    </dependency>
+
+    <!-- TEST sources dependencies -->
+    <dependency>
+      <groupId>org.sonarsource.java</groupId>
+      <artifactId>java-checks-testkit</artifactId>
+      <version>7.34.0.35958</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter</artifactId>
+      <version>5.9.3</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-migrationsupport</artifactId>
+      <version>5.9.3</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.25.3</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
+        <artifactId>sonar-packaging-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <pluginKey>java-custom</pluginKey>
+          <pluginName>Java Custom Rules</pluginName>
+          <pluginClass>org.sonar.samples.java.MyJavaRulesPlugin</pluginClass>
+          <sonarLintSupported>true</sonarLintSupported>
+          <skipDependenciesPackaging>true</skipDependenciesPackaging>
+          <pluginApiMinVersion>9.14.0.375</pluginApiMinVersion>
+          <requirePlugins>java:${project.version}</requirePlugins>
+          <requiredForLanguages>java</requiredForLanguages>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-shade-plugin</artifactId>
+        <configuration>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>shade</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>17</source>
+          <target>17</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
