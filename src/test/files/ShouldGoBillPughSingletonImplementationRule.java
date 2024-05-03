@@ -1,12 +1,8 @@
-/**
- *This file is the sample code against we run our unit test.
- *It is placed src/test/files in order to not be part of the maven compilation.
- **/
 class ShouldGoBillPughSingletonImplementationRule {
 
-    private static final ShouldGoBillPughSingletonImplementationRule instance;
+    private static final ShouldGoBillPughSingletonImplementationRule instance; // Noncompliant {{Singleton detected, you should implement singleton follow the Bill Pugh singleton approach}}
 
-    private class ShouldGoBillPughSingletonImplementationRule() {
+    private ShouldGoBillPughSingletonImplementationRule() {
     }
 
     public static ShouldGoBillPughSingletonImplementationRule getInstance() {

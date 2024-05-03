@@ -9,7 +9,7 @@ import org.sonar.plugins.java.api.tree.VariableTree;
 /**
  * @author anhvn
  */
-@Rule(key = "ShouldGoBillPughSingletonImplementationRule")
+@Rule(key = "ShouldGoBillPughSingletonImplementation")
 public class ShouldGoBillPughSingletonImplementationRule extends BaseTreeVisitor implements JavaFileScanner {
     private JavaFileScannerContext context;
 

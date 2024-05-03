@@ -28,7 +28,7 @@ class MyJavaFileCheckRegistrarTest {
       "mycompany-java:AvoidTreeList",
       "mycompany-java:AvoidMethodWithSameTypeInArgument",
       "mycompany-java:SecurityAnnotationMandatory",
-      "mycompany-java:ShouldGoBillPughSingletonImplementationRule");
+      "mycompany-java:ShouldGoBillPughSingletonImplementation");
 
     assertThat(context.mainCheckClasses).extracting(Class::getSimpleName).containsExactly(
       "SpringControllerRequestMappingEntityRule",
