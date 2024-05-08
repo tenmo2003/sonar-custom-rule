@@ -1,5 +1,5 @@
 {
-  "title": "Title of ShouldGoBillPughSingletonImplementationRule",
+  "title": "Go for BillPugh singleton implementation",
   "type": "CODE_SMELL",
   "status": "ready",
   "remediation": {

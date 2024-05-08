@@ -2,41 +2,40 @@
 <h2>Noncompliant Code Example</h2>
 <pre>
     <code>
-        public final class ClassSingleton {
+public final class SingletonExample {
 
-            private static ClassSingleton INSTANCE;
-            private String info = "Initial info class";
+    private static SingletonExample INSTANCE;
 
-            private ClassSingleton() {
-            }
+    private SingletonExample() {
+    }
 
-            public static ClassSingleton getInstance() {
-                if(INSTANCE == null) {
-                    INSTANCE = new ClassSingleton();
-                }
-
-                return INSTANCE;
-            }
-
-            // getters and setters
+    public static SingletonExample getInstance() {
+        if(INSTANCE == null) {
+            INSTANCE = new SingletonExample();
         }
+
+        return INSTANCE;
+    }
+
+    // getters and setters
+}
     </code>
 </pre>
 <h2>Compliant Solution</h2>
 <pre>
     <code>
-        public class BillPughSingleton {
-            private BillPughSingleton() {
+public class SingletonExample {
+    private SingletonExample() {
 
-            }
+    }
 
-            private static class SingletonHelper {
-                private static final BillPughSingleton BILL_PUGH_SINGLETON_INSTANCE = new BillPughSingleton();
-            }
+    private static class SingletonHelper {
+        private static final SingletonExample BILL_PUGH_SINGLETON_INSTANCE = new SingletonExample();
+    }
 
-            public static BillPughSingleton getInstance() {
-                return SingletonHelper.BILL_PUGH_SINGLETON_INSTANCE;
-            }
-        }
+    public static SingletonExample getInstance() {
+        return SingletonHelper.BILL_PUGH_SINGLETON_INSTANCE;
+    }
+}
     </code>
 </pre>

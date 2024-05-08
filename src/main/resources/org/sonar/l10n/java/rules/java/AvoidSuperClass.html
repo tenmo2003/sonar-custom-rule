@@ -1,9 +1,21 @@
 <p>My stupid rule to avoid extends some SuperClass</p>
 <h2>Noncompliant Code Example</h2>
 <pre>
-TO DO 
+    <code>
+class MyClass extends java.io.File {
+    // some code
+}
+
+class MyOtherClass extends java.util.logging.Logger {
+    // some code
+}
+    </code>
 </pre>
 <h2>Compliant Solution</h2>
 <pre>
-TO DO 
+<code>
+class MyClass {
+    // some code
+}
+</code>
 </pre>
