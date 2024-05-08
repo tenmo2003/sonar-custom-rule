@@ -1,9 +1,42 @@
-<p>This rule detects usage of configured annotation</p>
+<p>This rule reminds team members to use BillPugh implementation when using singleton.</p>
 <h2>Noncompliant Code Example</h2>
 <pre>
-TO DO
+    <code>
+        public final class ClassSingleton {
+
+            private static ClassSingleton INSTANCE;
+            private String info = "Initial info class";
+
+            private ClassSingleton() {
+            }
+
+            public static ClassSingleton getInstance() {
+                if(INSTANCE == null) {
+                    INSTANCE = new ClassSingleton();
+                }
+
+                return INSTANCE;
+            }
+
+            // getters and setters
+        }
+    </code>
 </pre>
 <h2>Compliant Solution</h2>
 <pre>
-TO DO
+    <code>
+        public class BillPughSingleton {
+            private BillPughSingleton() {
+
+            }
+
+            private static class SingletonHelper {
+                private static final BillPughSingleton BILL_PUGH_SINGLETON_INSTANCE = new BillPughSingleton();
+            }
+
+            public static BillPughSingleton getInstance() {
+                return SingletonHelper.BILL_PUGH_SINGLETON_INSTANCE;
+            }
+        }
+    </code>
 </pre>
